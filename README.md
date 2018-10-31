@@ -19,6 +19,7 @@ public class PointOfSalesCalculator {
     public static int bunInventory = 100;
     public static int orderOfFriesPerBag = 8;
     public static int bagsOfFries = 25;
+    public static int totalOrdersOfFries = orderOfFriesPerBag * bagsOfFries;
     public static final double PRICE_HOTDOG = 1.50;
     public static final double PRICE_FRIES = 1.75;
     public static final double SALES_TAX = .06;
@@ -64,11 +65,20 @@ public class PointOfSalesCalculator {
         System.out.println("SUBTOTAL: $" + subTotal);
         System.out.println("Tax: $" + taxTotal);
         System.out.println("Total: $" + priceAfterTax);
+        double revenue = totalHotDogs + totalFrenchFries;
+        double netIncome;
     }
     
     public static void fryAndDogInventory(int numHotDogs, int numFrenchFries){
-        double revenue = totalHotDogs + totalFrenchFries;
+       // double totalHotDogs = PRICE_HOTDOG * numHotDogs;
+       //double totalFrenchFries = PRICE_FRIES * numFrenchFries;
+        int hotDogsLeft = numHotDogs - hotDogInventory;
+        int bunsLeft = hotDogsLeft;
+        int friesLeft = totalOrdersOfFries - numFrenchFries;
         
+        System.out.println("Total hot dogs left: " + hotDogsLeft);
+        System.out.println("Total buns left: " + bunsLeft);
+        System.out.println("Total orders of fries left: " + friesLeft);
     }//end inventory
     
     
