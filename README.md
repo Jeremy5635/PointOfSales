@@ -57,14 +57,17 @@ public class PointOfSalesCalculator {
     public static void subTotalAndTaxPrices(int numHotDogs, int numFrenchFries ){
         double totalHotDogs = PRICE_HOTDOG * numHotDogs;
         double totalFrenchFries = PRICE_FRIES * numFrenchFries;
-        System.out.println("Total for Hotdogs: $" + totalHotDogs);
+        System.out.println("Total for Hotdogs:      $" + totalHotDogs);
         System.out.println("Total for French Fries: $" + totalFrenchFries);
         double subTotal = numHotDogs * PRICE_HOTDOG + numFrenchFries * PRICE_FRIES;
         double taxTotal = subTotal * SALES_TAX;
         double priceAfterTax = taxTotal + subTotal; 
-        System.out.println("SUBTOTAL: $" + subTotal);
-        System.out.println("Tax: $" + taxTotal);
-        System.out.println("Total: $" + priceAfterTax);
+        System.out.println("__________________");
+        System.out.println("|SUBTOTAL: $" + subTotal + " |");
+        System.out.println("|Tax:      $" + taxTotal + " |");
+        System.out.println("|----------------|");
+        System.out.println("|Total:    $" + priceAfterTax + "|");
+        System.out.println("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
         double revenue = totalHotDogs + totalFrenchFries;
         double netIncome;
     }
@@ -72,13 +75,29 @@ public class PointOfSalesCalculator {
     public static void fryAndDogInventory(int numHotDogs, int numFrenchFries){
        // double totalHotDogs = PRICE_HOTDOG * numHotDogs;
        //double totalFrenchFries = PRICE_FRIES * numFrenchFries;
-        int hotDogsLeft = numHotDogs - hotDogInventory;
+        int hotDogsLeft = hotDogInventory - numHotDogs ;
         int bunsLeft = hotDogsLeft;
         int friesLeft = totalOrdersOfFries - numFrenchFries;
         
         System.out.println("Total hot dogs left: " + hotDogsLeft);
         System.out.println("Total buns left: " + bunsLeft);
         System.out.println("Total orders of fries left: " + friesLeft);
+        
+        if (hotDogsLeft <= 30)
+            System.out.println("You need to buy some more Hot Dogs!!!");
+        else{
+            System.out.println("Your Hot Dog inventory is all good..for now.");
+        }
+        if(friesLeft <= 30)
+            System.out.println("You need to buy more fries!!!");
+        else{
+            System.out.println("Your French Fry inventory is all good..for now.");
+        }
+        if(bunsLeft <= 30)
+            System.out.println("You need to buy more buns!!!");
+        else{
+            System.out.println("Your Hot Dog bun inventory is all good..for now.");
+        }
     }//end inventory
     
     
